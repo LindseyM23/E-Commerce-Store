@@ -1,5 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 
 function App() {
   return (
