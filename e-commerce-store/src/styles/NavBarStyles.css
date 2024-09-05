@@ -1,0 +1,117 @@
+body{
+    background-color: #EDEDED;
+    
+}
+
+
+.dashboard .navbar {
+    border-radius: 8px;
+    background: var(--ui-white, #FFFFFF);
+    margin-right: 257px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+    width: 72px;
+    height: fit-content;
+    box-sizing: border-box;
+  }
+
+  .dashboard .vector-1 {
+    width: 14.6px;
+    height: 15.8px;
+  }
+
+
+  .dashboard .nav-links-top {
+    margin-bottom: 676.8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 56px;
+    box-sizing: border-box;
+  }
+  .dashboard .logo {
+    border-radius: 4px;
+    background: var(--ui-white, #FFFFFF);
+    margin: 0 15px 47.1px 4px;
+    display: flex;
+    padding: 10px 30px 10px 10px; 
+    width: 0px;
+    height: 50px;
+    box-sizing: border-box;
+  }
+
+  .dashboard .group-1 {
+    width: 100px;
+    height: 35px;
+    margin: -3px;
+  }
+  .dashboard .nav-link {
+    border-radius: 10px;
+    background: var(--font-dark, #1A1F16);
+    margin-bottom: 41.5px;
+    display: flex;
+    padding: 10px;
+    margin-right: 17px;
+    width: 40px;
+    height: 40px;
+    box-sizing: border-box;
+  }
+  .dashboard .vector-2 {
+    width: 20px;
+    height: 20px;
+  
+  }
+
+
+  .dashboard .nav-link-1 {
+    border-radius: 10px;
+    margin: 0 10.2px 0 10.3px;
+    display: flex;
+    width: 40px;
+    height: 40px;
+    box-sizing: border-box;
+  }
+  .dashboard .vector-3 {
+    width: 20px;
+    height: 29px;
+  }
+
+  .dashboard .icon {
+    border-radius: 50px;
+    display: flex;
+    width:44px;
+    height: 20px;
+    margin-right: 90px;
+    box-sizing: border-box;
+  }
+  .dashboard .vector-4 {
+    border-radius: 0px;
+    width: 20px;
+    height: 15px;
+    margin: -4px;
+  }
+  .dashboard .menu-icon {
+    margin: 0 12.1px 47.1px 12.1px;
+    display: flex;
+    width: 30px;
+    height: 10px;
+    box-sizing: border-box;
+  }
+
+  .dashboard .nav-link-2 {
+    border-radius: 10px;
+    background: var(--ui-danger, #E5252C);
+    display: flex;
+    padding: 11.8px 10.3px;
+    width: 40px;
+    height: 40px;
+    box-sizing: border-box;
+  }
+  .dashboard .nav-link-bottom {
+    display: flex;
+    width: 56px;
+    height: 56px;
+    box-sizing: border-box;
+  }
