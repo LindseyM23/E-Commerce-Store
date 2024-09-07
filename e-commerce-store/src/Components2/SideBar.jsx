@@ -1,6 +1,9 @@
 
 import React, { useState } from "react";
 import "../styles/SideBarStyles.css";
+// import { Link } from "react-router-dom";
+
+
 
 function SideBar() {
     const [isExpanded, setIsExpanded] = useState(false);
@@ -22,11 +25,16 @@ function SideBar() {
                 </div>
                 <div className="nav-links">
                     <div className="nav-link">
+                      
                         <img className="vector-2" src="Assets/Vector99_x2.png" alt="Store" />
+                      
                         {isExpanded && <span className="nav-text">Store</span>}
+                       
                     </div>
                     <div className="nav-link">
+                    
                         <img className="vector-3" src="Assets/Vector126_x2.png" alt="Cart" />
+                        
                         {isExpanded && <span className="nav-text">Cart</span>}
                     </div>
                 </div>
