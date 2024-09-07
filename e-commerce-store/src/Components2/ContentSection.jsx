@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+
 import "../styles/ContentSection.css";
 import SideBar from "./SideBar";
 import SearchBar from "./SearchBar";
@@ -64,39 +64,19 @@ const products = [
 ];
 
 function ContentSection(){
-// handles the selection of products to the bag section
-const [bagItems,setBagItems] = useState([]);
-// allows products to be filtered andd upon searching of an item, only it can appear
-  const [filteredProducts, setFilteredProducts] = useState(products);
-// This function will add the clicked item's image to the bagItems state.
-
-
-const handleAddToBag = (product) => {
-  setBagItems([...bagItems, product.image]);
-  console.log(product.image)
-};
-
-
-
-  // Function to handle search query change
-  const handleSearchChange = (query) => {
-    const filtered = products.filter(product =>
-      product.name.toLowerCase().includes(query.toLowerCase())
-    );
-    setFilteredProducts(filtered);
-  };
 
   return (
     <>
     <SideBar/>
  
-    <SearchBar onSearch={handleSearchChange}  />
+    <SearchBar  />
 
-    <DashboardBag bagItems={bagItems} /> 
+    <DashboardBag  /> 
 
     <div className="content-area">
-    {filteredProducts.length > 0 ? (
-          filteredProducts.map((product, index) =>  (
+      
+    {products.length> 0 ? (
+          products.map((product, index) =>  (
         <div className="item-card" key={index}>
           <div className="product-image">
             <img
@@ -116,7 +96,7 @@ const handleAddToBag = (product) => {
                   className="action-icon"
                   src="Assets/Vector3_x2.png"
                   alt="Buy Now"
-                  onClick={() => handleAddToBag(product)} 
+                  // onClick={() => handleAddToBag(product)} 
                 />
               </div>
             </div>
@@ -125,10 +105,10 @@ const handleAddToBag = (product) => {
       ))
     ):(
       <p>No Products match your search</p>
-    )}
-    </div>
-    </>
-  );
+    )}            
+  </div>
+     </>
+        );
 
 }
 export default ContentSection;

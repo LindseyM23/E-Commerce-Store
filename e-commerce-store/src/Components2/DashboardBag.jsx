@@ -1,28 +1,22 @@
 import React from "react";
 import "../styles/DashboardBag.css";
-import { useSelector } from 'react-redux';
 
-function DashboardBag() {
-    const bagItems = useSelector((state) => state.bag.items);
+
+function DashboardBag(index) {
+    
 
     return (
         <div className="bag-area">
 <div className="bag-header">
       <h2>Bag</h2>
       <div className="bag-items">
-        {bagItems.length > 0 ? (
-          bagItems.map((item, index) => (
             <img 
               key={index} 
-              src={item} 
+              src={index.image} 
               alt={`Bag item ${index}`} 
               width={100} 
               onError={(e) => { e.target.src = 'path_to_placeholder_image.png'; }} // Fallback if image fails
             />
-          ))
-        ) : (
-          <p>Your bag is empty.</p>
-        )}
       </div>
     </div>
 

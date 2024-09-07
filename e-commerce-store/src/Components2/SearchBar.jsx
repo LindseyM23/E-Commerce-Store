@@ -22,17 +22,11 @@
 // }
 // export default SearchBar;
 
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import "../styles/SearchBar.css";
 
-function SearchBar({ onSearch }) {
-    const [searchQuery, setSearchQuery] = useState("");
-
-    const handleInputChange = (event) => {
-        const query = event.target.value;
-        setSearchQuery(query);
-        onSearch(query);
-    };
+function SearchBar() {
+  
 
     // const filterItems = (query) => {
     //     const filtered = items.filter(item =>
@@ -51,8 +45,8 @@ function SearchBar({ onSearch }) {
                     <input
                         type="text"
                         placeholder="Apple Watch, Samsung S21, Macbook Pro, ..."
-                        value={searchQuery}
-                        onChange={handleInputChange}
+                        // value={searchQuery}
+                        // onChange={handleInputChange}
                     />
                 </div>
             </div>
