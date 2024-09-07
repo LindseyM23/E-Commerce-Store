@@ -1,12 +1,10 @@
-import { configureStore } from '@redux/js/toolkit'
-import counterReducer from './CounterSlice';
-import storage from 'redux-persist/lib/storage';
-import { persistReducer, persistStore } from 'redux-persist';
- 
+import { configureStore } from '@reduxjs/toolkit';
+import checkoutReducer from './checkoutSlice';
+
 const store = configureStore({
-    reducer:{
-        counter : counterRedducer
-    }
+  reducer: {
+    checkout: checkoutReducer,
+  },
 });
 
 export default store;

@@ -1,25 +1,31 @@
-import { createSlice } from '@reduxjs/toolkit'
-import { useDispatch, useSelector } from 'react-redux';
+import { createSlice } from '@reduxjs/toolkit';
 
-const counterSlice = createSlice({
-    name: "Counter",
-    initialState:{
-        count:0
+const initialState = {
+  shippingAddress: {
+    name: '',
+    address: '',
+    city: '',
+    zip: '',
+  },
+  paymentMethod: '',
+  cart: [],
+};
+
+const checkoutSlice = createSlice({
+  name: 'checkout',
+  initialState,
+  reducers: {
+    updateShippingAddress: (state, action) => {
+      state.shippingAddress = action.payload;
     },
-    reducers:{
-        increment(state)
-{
-    state.count +=1
-}, 
-decrement(state){
-    state.count -=1
-},
-reset(state){
-    state.count = 0
-}
-    }
+    updatePaymentMethod: (state, action) => {
+      state.paymentMethod = action.payload;
+    },
+    updateCart: (state, action) => {
+      state.cart = action.payload;
+    },
+  },
+});
 
-})
-
-export const {increment,decrement,reset} = counterSlice.actions
-export default counterSlice.reducer
+export const { updateShippingAddress, updatePaymentMethod, updateCart } = checkoutSlice.actions;
+export default checkoutSlice.reducer;

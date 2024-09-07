@@ -1,19 +1,12 @@
-import './App.css';
-// import { Provider } from 'react-redux';
-// import { BrowserRouter } from 'react-router-dom';
-import Dashboard from './Components/Dashboard';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import store from './redux/store';
+import Checkout from './Checkout';
 
-function App() {
-  return (
-   
-     
-        <div className="App">
-
-   <Dashboard/>
-        </div>
-    
-    
-  );
-}
-
-export default App;
+ReactDOM.render(
+  <Provider store={store}>
+    <Checkout />
+  </Provider>,
+  document.getElementById('root')
+);
