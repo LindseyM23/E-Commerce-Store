@@ -55,6 +55,7 @@ const products = [
     alt: "iPhone 14 Product RED"
   },
   {
+    
     name: "iPhone 14",
     description: "Product RED",
     image: "assets/image15.png",
