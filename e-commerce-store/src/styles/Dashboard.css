@@ -1,0 +1,14 @@
+/* styles/App.css */
+.container {
+    display: flex;
+    height: 100vh; /* Full viewport height */
+}
+
+.sidebar {
+    flex: 0 0 72px; /* Fixed width for the sidebar */
+}
+
+.content {
+    flex: 1; /* Takes up the remaining space */
+    padding: 16px; /* Optional: Add padding if needed */
+}

@@ -1,0 +1,80 @@
+/* styles/BagStyles.css */
+
+.bag-area {
+    display: flex;
+    flex-direction: column;
+    width: 300px; /* Adjust based on your design */
+    max-width: 300px; 
+    background:#EDEDED;  /* Background color */
+    border-radius: 8px;
+    padding: 16px;
+    position: absolute;
+    right: 0; 
+    top: 0; 
+    height: 1000px; 
+    overflow: hidden;
+}
+
+.bag-header {
+    margin-bottom: 16px;
+}
+
+.bag-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.bag-items {
+    margin-bottom: 16px;
+}
+
+.bag-items-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.bag-item {
+    width: 60px; /* Adjust based on your design */
+    height: 60px; /* Adjust based on your design */
+    background: #e0e0e0; /* Placeholder background */
+    border-radius: 4px;
+}
+
+.item-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.cta {
+    display: flex;
+    justify-content: center;
+}
+
+.cta-button {
+    display: flex;
+    align-items: center;
+    background-color: black; /* Button background color */
+    color: #fff;
+    border: none;
+    border-radius: 9px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.cta-icon {
+    margin-right: 8px;
+}
+
+.cta-icon-img {
+    width: 20px; /* Adjust based on your design */
+    height: 20px; /* Adjust based on your design */
+}
+
+.cta-text {
+    font-weight: bold;
+}

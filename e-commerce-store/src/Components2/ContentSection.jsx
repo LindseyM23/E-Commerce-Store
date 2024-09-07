@@ -1,83 +1,134 @@
-// import React from "react";
-// import "../styles/ContentSection.css";
-// // import Dashboard from "../Components/Dashboard";
+import React, { useState } from "react";
+import "../styles/ContentSection.css";
+import SideBar from "./SideBar";
+import SearchBar from "./SearchBar";
+import DashboardBag from "./DashboardBag";
 
-// const products = [
-//   {
-//     imageSrc: "/Assets/image16.png",
-//     name: "Apple Watch",
-//     description: "Series 5 SE",
-//     price: "$ 529.99",
-//   },
-//   {
-//     imageSrc: "/Assets/image17.png",
-//     name: "Samsung Galaxy S21",
-//     description: "5G Smartphone",
-//     price: "$ 799.99",
-//   },
-//   {
-//     imageSrc: "/Assets/image18.png",
-//     name: "Sony WH-1000XM4",
-//     description: "Wireless Noise-Cancelling Headphones",
-//     price: "$ 349.99",
-//   },
-//   {
-//     imageSrc: "/Assets/image19.png",
-//     name: "MacBook Pro",
-//     description: "13-inch, M1 Chip",
-//     price: "$ 1299.99",
-//   },
-//   {
-//     imageSrc: "/Assets/image20.png",
-//     name: "iPad Pro",
-//     description: "11-inch, Wi-Fi, 256GB",
-//     price: "$ 999.99",
-//   },
-//   {
-//     imageSrc: "/Assets/image21.png",
-//     name: "Bose SoundLink",
-//     description: "Portable Bluetooth Speaker",
-//     price: "$ 199.99",
-//   },
-//   {
-//     imageSrc: "/Assets/image22.png",
-//     name: "Canon EOS R6",
-//     description: "Full-Frame Mirrorless Camera",
-//     price: "$ 2499.99",
-//   },
-//   {
-//     imageSrc: "/Assets/image23.png",
-//     name: "PlayStation 5",
-//     description: "Disc Edition",
-//     price: "$ 499.99",
-//   },
-//   {
-//     imageSrc: "/Assets/image24.png",
-//     name: "Nike Air Max 270",
-//     description: "Men's Shoes",
-//     price: "$ 149.99",
-//   },
-// ];
+const products = [
+  {
+    name: "Apple Watch",
+    description: "Series 5 SE",
+    image: "assets/image16.png",
+    price: "$529.99",
+    alt: "Apple Watch"
+  },
+  {
+    name: "Sony ZX330BT",
+    description: "Light Grey",
+    image: "assets/image1.png",
+    price: "$39.99",
+    alt: "Sony ZX330BT"
+  },
+  {
+    name: "iPhone 11",
+    description: "Serious Black",
+    image: "assets/image13.png",
+    price: "$619.99",
+    alt: "iPhone 11"
+  },
+  {
+    name: "iPhone 11",
+    description: "Subway Blue",
+    image: "assets/image11.png",
+    price: "$619.99",
+    alt: "iPhone 11 Subway Blue"
+  },
+  {
+    name: "iPhone 11",
+    description: "Product RED",
+    image: "assets/image15.png",
+    price: "$619.99",
+    alt: "iPhone 11 Product RED"
+  },
+  {
+    name: "iPhone 13",
+    description: "Milky White",
+    image: "assets/image9.png",
+    price: "$619.99",
+    alt: "iPhone 13 Product RED"
+  },
+  {
+    name: "iPhone 14",
+    description: "Product RED",
+    image: "assets/image15.png",
+    price: "$619.99",
+    alt: "iPhone 14 Product RED"
+  },
+  {
+    name: "iPhone 14",
+    description: "Product RED",
+    image: "assets/image15.png",
+    price: "$619.99",
+    alt: "iPhone 14 Product RED"
+  }
+];
 
-
-// const ContentSection=()=>{
-//     return(
-// <div className="card-grid">
-//       {products.map((product, index) => (
-//         <ContentSection
-//           key={index}
-//           imageSrc={product.imageSrc}
-//           name={product.name}
-//           description={product.description}
-//           price={product.price}
-//         />
-//       ))}
-//       </div>
+function ContentSection(){
+// handles the selection of products to the bag section
+const [bagItems,setBagItems] = useState([]);
+// allows products to be filtered andd upon searching of an item, only it can appear
+  const [filteredProducts, setFilteredProducts] = useState(products);
+// This function will add the clicked item's image to the bagItems state.
 
 
-     
-//     );
-// }
+const handleAddToBag = (product) => {
+  setBagItems([...bagItems, product.image]);
+  console.log(product.image)
+};
 
 
-// export default ContentSection;
+
+  // Function to handle search query change
+  const handleSearchChange = (query) => {
+    const filtered = products.filter(product =>
+      product.name.toLowerCase().includes(query.toLowerCase())
+    );
+    setFilteredProducts(filtered);
+  };
+
+  return (
+    <>
+    <SideBar/>
+ 
+    <SearchBar onSearch={handleSearchChange}  />
+
+    <DashboardBag bagItems={bagItems} /> 
+
+    <div className="content-area">
+    {filteredProducts.length > 0 ? (
+          filteredProducts.map((product, index) =>  (
+        <div className="item-card" key={index}>
+          <div className="product-image">
+            <img
+              className="product-image-content"
+              src={product.image}
+              width={150}
+              alt={product.alt}
+            />
+          </div>
+          <div className="product-content">
+            <div className="product-name">{product.name}</div>
+            <div className="product-description">{product.description}</div>
+            <div className="product-action">
+              <div className="product-price">{product.price}</div>
+              <div className="action-button">
+                <img
+                  className="action-icon"
+                  src="Assets/Vector3_x2.png"
+                  alt="Buy Now"
+                  onClick={() => handleAddToBag(product)} 
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      ))
+    ):(
+      <p>No Products match your search</p>
+    )}
+    </div>
+    </>
+  );
+
+}
+export default ContentSection;

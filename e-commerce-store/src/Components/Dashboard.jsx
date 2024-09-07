@@ -1,26 +1,23 @@
 import React from "react";
-import SearchBar from "../Components2/SearchBar";
-import NavBar from "../Components2/NavBar"
+import "../styles/Dashboard.css"
 import ContentSection from "../Components2/ContentSection";
- 
+
+
+
+
+
 function Dashboard(){
 
-return(
+   
+  return (
     <>
-    <SearchBar/>
-
-    <NavBar/>
-    <ContentSection/>
-    
+    <div className="container">
+     <ContentSection/>
+     </div>
+   
     </>
-)
-
-
+  )
 }
-
-
-
-
 
 
 export default Dashboard;
