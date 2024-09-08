@@ -1,39 +1,16 @@
-
-// import React from "react";
-// import "../styles/SearchBar.css";
-
-// function SearchBar() {
-//     return (
-//         <div className="search-bar-container">
-//             <div className="dashboard">
-//                 <div className="top-bar">
-//                     <div className="label-1">
-//                         <span className="label">
-//                             Search Item
-//                         </span>
-//                     </div>
-//                     <div className="input-field">
-//                         <input type="text" placeholder="Apple Watch, Samsung S21, Macbook Pro, ..." />
-//                     </div>
-//                 </div>
-//             </div>
-//         </div>
-//     );
-// }
-// export default SearchBar;
-
-// import React, { useState } from "react";
+import React, { useState } from "react";
 import "../styles/SearchBar.css";
 
-function SearchBar() {
-  
+function SearchBar({ onSearch }) {
+    const [searchQuery, setSearchQuery] = useState("");
 
-    // const filterItems = (query) => {
-    //     const filtered = items.filter(item =>
-    //         item.name.toLowerCase().includes(query.toLowerCase())
-    //     );
-    //     setFilteredItems(filtered);
-    // };
+    const handleInputChange = (event) => {
+        const query = event.target.value;
+        setSearchQuery(query);
+       onSearch(query);
+    };
+
+   
 
     return (
         <div className="dashboard">
@@ -45,8 +22,8 @@ function SearchBar() {
                     <input
                         type="text"
                         placeholder="Apple Watch, Samsung S21, Macbook Pro, ..."
-                        // value={searchQuery}
-                        // onChange={handleInputChange}
+                        value={searchQuery}
+                        onChange={handleInputChange}
                     />
                 </div>
             </div>
@@ -55,3 +32,4 @@ function SearchBar() {
 }
 
 export default SearchBar;
+

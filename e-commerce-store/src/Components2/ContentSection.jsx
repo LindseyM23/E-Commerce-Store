@@ -1,8 +1,10 @@
-
+import React,{ useState } from "react";
 import "../styles/ContentSection.css";
 import SideBar from "./SideBar";
 import SearchBar from "./SearchBar";
 import DashboardBag from "./DashboardBag";
+
+
 
 const products = [
   {
@@ -65,19 +67,37 @@ const products = [
 ];
 
 function ContentSection(){
+  // this function helps the search bar filter products too show the ones that fit the description
+  const [filteredProducts, setFilteredProducts] = useState(products);
+
+  const handleSearchChange = (query) => {
+    const filtered = products.filter(product =>
+      product.name.toLowerCase().includes(query.toLowerCase())
+    );
+    setFilteredProducts(filtered);
+  };
+
+  // this function helps us show the product image on the dashboard bag when selected
+  const [bagItems, setBagItems] = useState([]);
+  const handleAddToBag = (product) => {
+    setBagItems([...bagItems, product.image]); 
+  };
+
+  
+
 
   return (
     <>
     <SideBar/>
  
-    <SearchBar  />
+    <SearchBar onSearch={handleSearchChange} />
+    <DashboardBag bagItems={bagItems} />
 
-    <DashboardBag  /> 
 
     <div className="content-area">
       
     {products.length> 0 ? (
-          products.map((product, index) =>  (
+          filteredProducts.map((product, index) =>  (
         <div className="item-card" key={index}>
           <div className="product-image">
             <img
@@ -97,7 +117,7 @@ function ContentSection(){
                   className="action-icon"
                   src="Assets/Vector3_x2.png"
                   alt="Buy Now"
-                  // onClick={() => handleAddToBag(product)} 
+                  onClick={() => handleAddToBag(product)} 
                 />
               </div>
             </div>
