@@ -6,6 +6,7 @@ import '../App.css';
 import Rating from './Rating';
 import {addToBag} from '../Components2/CheckoutBagPage';
 import {addToCartPage} from '../Components/CartPage';
+import { Button } from 'bootstrap';
 
 
 
@@ -110,11 +111,34 @@ const ProductPage = () => {
                 <label className="search-label" htmlFor="search">Search Item</label>
                 <input type="text" id="search" className="form-control" placeholder="Apple Watch, Samsung 21, Macbook Pro" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
             </div>
+            <div className='row'>
+                {filteredProducts.length > 0 ? (
+                    filteredProducts.map(products => (
+                        <div key={products.id} className='col-lg-3 col-md-12 col-sm-12 mb-4'>
+                            <div className='card w-50 border-0 bg-transparent'>
+                                <img src={products.image} alt={products.name} className="card-image mx-auto d-block" height='230' width='190' onClick={() => handleItemView(products)}/>
+                                <div className="card-content d-flex flex-colum">
+                                    <div className="card-title">{products.name}</div>
+                                    <div className="card-description">{products.smalldescription}</div>
+                                    <div className="mt-auto d-flex action">
+                                        <span className="card-price">$ {products.price}</span>
+                                        <button className='btn' onClick={() => handleAddToBag(products)}>
+                                            <i className='bi bi-bag-plus-fill'></i>
+                                        </button>
+                                    </div>
+                                    </div>
+                                    </div>
+                                    </div> 
+                    ))
+                    ) : (
+                    <div className="col-12">
+                        <p>No results</p>
+                    </div>
+                )}
+            </div>
         </div>
         
-        
-        
         </>
-    )
-}
+    );
+};
 export default ProductPage;
